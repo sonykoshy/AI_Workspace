@@ -1,0 +1,216 @@
+:root {
+  color-scheme: light;
+  --bg: #f3f0eb;
+  --panel: #fffefc;
+  --ink: #1b1712;
+  --muted: #5b534a;
+  --accent: #1f5a4a;
+  --accent-soft: #d9efe6;
+  --border: #e7dfd6;
+  --shadow: 0 18px 40px rgba(32, 26, 18, 0.14);
+  --palette-rose: #f3c7c1;
+  --palette-amber: #f8e1a3;
+  --palette-sage: #cfe4d5;
+  --palette-sky: #c9dff2;
+  --palette-lilac: #d8c9f2;
+  --palette-peach: #f7d6b8;
+  --radius: 16px;
+  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --sans: "Space Grotesk", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--sans);
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 10% 10%, rgba(255, 255, 255, 0.9) 0%, rgba(243, 240, 235, 0.8) 55%, rgba(231, 221, 210, 0.6) 100%),
+    linear-gradient(120deg, var(--palette-rose), var(--palette-sage), var(--palette-sky));
+  background-blend-mode: screen, normal;
+}
+
+#app {
+  min-height: 100vh;
+  padding: 40px 20px 60px;
+}
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.hero {
+  display: grid;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 3vw, 3.4rem);
+  margin: 0;
+}
+
+.hero p {
+  max-width: 720px;
+  color: var(--muted);
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  background: var(--panel);
+  border-radius: 999px;
+  padding: 6px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.tab {
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab.active {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(31, 90, 74, 0.25);
+}
+
+.panel {
+  margin-top: 18px;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+.card h2 {
+  margin: 0 0 8px;
+  font-size: 1.3rem;
+}
+
+.card p {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+input[type="file"],
+select,
+input[type="range"],
+input[type="number"] {
+  width: 100%;
+}
+
+input[type="file"] {
+  border: 1px dashed var(--border);
+  padding: 10px;
+  border-radius: 12px;
+  background: #fff;
+}
+
+button {
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.inline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.hero::after {
+  content: "";
+  height: 10px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--palette-rose), var(--palette-amber), var(--palette-sage), var(--palette-sky), var(--palette-lilac), var(--palette-peach));
+}
+
+.status {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--muted);
+  min-height: 18px;
+}
+
+.output {
+  display: grid;
+  gap: 8px;
+  margin-top: 8px;
+  font-size: 0.9rem;
+}
+
+.output a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+small {
+  color: var(--muted);
+}
+
+@media (max-width: 640px) {
+  .hero {
+    text-align: left;
+  }
+}
